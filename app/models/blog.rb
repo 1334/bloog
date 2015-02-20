@@ -14,8 +14,12 @@ class Blog
     "The trusted source for drying paint news & opinion"
   end
 
-  def new_post
-    post = post_source.call
+  def add_entry entry
+    entries << entry
+  end
+
+  def new_post *args
+    post = post_source.call *args
     post.blog = self
     post
   end
